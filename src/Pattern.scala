@@ -78,26 +78,33 @@ object Pattern extends App {
   println(standardListMatching1)
 
   val standardListMatching2 = aStandardList match {
-    case 1 :: List(_) => "match"
+    case 1 :: List(_, _, _) => "match"
     case _ => "not match"
   }
   println(standardListMatching2)
 
   val standardListMatching3 = aStandardList match {
-    case 1 :: List(_, _, _) => "match"
+    case 1 :: List(_) => "match"
     case _ => "not match"
   }
   println(standardListMatching3)
 
   val standardListMatching4 = aStandardList match {
-    case List(1,2,3) :+ 42 => "match"
+    case List(1,2,3) :+ 32 => "match32"
+    case List(1,2,3) :+ 42 => "match42"
   }
   println(standardListMatching4)
 
   val standardListMatching5 = aStandardList match {
-    case List(1, _*) => "match"
+    case List(1, _*) => "match*"
   }
   println(standardListMatching5)
+
+  val li = List(1)
+  val description = li match {
+    case head :: Nil => println(s"head $head.")
+    case _ => "not match"
+  }
 
   println("list mapping ----------------------------------- ")
   val mappedList = aStandardList.map {
@@ -138,7 +145,7 @@ object Pattern extends App {
   }
   println(numbersMatch2)
 
-  println("class ------------------------------------------ ")
+  println("case class ------------------------------------- ")
   case class Person(name: String, age: Int)
   val bob = Person("Bob", 20)
   val greeting = bob match {
