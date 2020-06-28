@@ -1,8 +1,13 @@
 object Functions extends App{
-  def aFunction(a: String, b: Int): String = { // return String | ": String" can be omit when NOT recursive
+  def aFunction1(a: String, b: Int): String = { // return String | ": String" can be omit when NOT recursive
     a + " " + b
   }
-  println(aFunction("hello", 3))
+  println(aFunction1("hello", 3))
+
+  def aFunction2(x: Int): Int = {
+    x + 1
+  }
+  println(aFunction2(7))
 
   def aParameterlessFunction(): Int = {
     42

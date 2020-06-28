@@ -38,6 +38,7 @@ object DataType extends App{
   println(aFloat)
   val aDouble: Double = 3.14
   println(aDouble)
+  val aUnit: Unit = println("hello, Scala") // Unit = void - not return anything just print or set variable
 
   println("--------------------------- S-interpolators")
   val name = "David"

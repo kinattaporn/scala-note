@@ -155,4 +155,10 @@ object Pattern extends App {
     case _ => "no name no age"
   }
   println(greeting2)
+
+  val dan = Person("Dan", 40)
+  val greeting3 = dan match {
+    case Person(n, _) => s"name $n age any"
+  }
+  println(greeting3)
 }

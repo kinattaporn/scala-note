@@ -19,16 +19,24 @@ object Expressions extends App{
   println(aWeirdValue4)
 
   println("--------------------- aCondition")
-  val aCondition = true
-  println(if(aCondition) 5 else 3) // IF is EXPRESSION
+  val aCondition = false
+  val aConditionedVal = if(aCondition) 5 else 3 // IF is EXPRESSION
+  println("aCondition " + aCondition)
+  println("aConditionedVal " + aConditionedVal)
 
   println("--------------------- aCodeBlock")
-  val aCodeBlock = {
+  val aCodeBlock1 = {
+    if (aCondition) 55
+    33
+  }
+  println(aCodeBlock1)
+
+  val aCodeBlock2 = {
     val y = 2
     val z = y + 1
     if (z > 2) "hello" else "goodbye"
   }
-  println(aCodeBlock)
+  println(aCodeBlock2)
 
   println("--------------------- someValue")
   val someValue = {
