@@ -20,6 +20,17 @@ object ObjectOriented extends App {
   counter.increment.print
   counter.increment.increment.increment.print
   counter.increment(4).print
+  println("---------------------------------------- object")
+  println(PersonCompanion.N_EYES)
+  println(PersonCompanion.canFly)
+  val mary_o = PersonCompanion
+  val john_o = PersonCompanion
+  println(mary_o == john_o)
+  println("---------------------------------------- class")
+  val mary_c = new PersonCompanion("Mary")
+  val john_c = new PersonCompanion("John")
+  println(mary_c == john_c)
+  val bobbie_c = PersonCompanion(mary_c, john_c)
 }
 
 class Person(name: String, val age: Int) { // constructor
@@ -63,4 +74,16 @@ class Counter(val count: Int = 0) {
     new Counter(count - n)
   }
   def print = println(count)
+}
+// COMPANIONS - object and class that have same name and same level
+object PersonCompanion {
+  // SCALA DOES NOT HAVE CLASS-LEVEL FUNCTIONALITY ("static")
+  // type + its only instance
+  // "static"/"class" - level functionality
+  val N_EYES = 2
+  def canFly: Boolean = false
+  def apply(mother: PersonCompanion, father: PersonCompanion): PersonCompanion = new PersonCompanion("Bobbie") // factory method
+}
+class PersonCompanion(val name: String) {
+  // instance-level functionality
 }

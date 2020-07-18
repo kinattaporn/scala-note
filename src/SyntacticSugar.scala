@@ -15,7 +15,7 @@ object SyntacticSugar extends App {
     def learnsScala = this learns "Scala"
   }
 
-  println("-------------------------------------- Person.likes")
+  println("-------------------------------------- Person.likes // infix notation")
   val mary = new Person("Marry", "Inception")
   // infix notation = operator notation (syntactic sugar) - only work with method with 1 parameter
   // object   method    parameter
@@ -23,20 +23,20 @@ object SyntacticSugar extends App {
   println(mary.likes("Inception"))
   println(mary likes "Inception") // Equivalent to above
 
-  println("-------------------------------------- Person.hangOutWith Person.+(Person)")
+  println("-------------------------------------- Person.hangOutWith Person.+(Person) // infix notation")
   val tom = new Person("Tom", "Flight Club")
   println(mary.hangOutWith(tom))
   println(mary hangOutWith tom)   // Equivalent to above
   println(mary.+(tom))
   println(mary + tom)             // Equivalent to above
 
-  println("-------------------------------------- Person.+(String)")
+  println("-------------------------------------- Person.+(String) // infix notation")
   println(mary.+("the Rockstar"))
   println(mary + "the Rockstar")             // Equivalent to above
   println((mary.+("the Rockstar")).apply())
   println((mary + "the Rockstar").apply())   // Equivalent to above
 
-  println("-------------------------------------- General.+")
+  println("-------------------------------------- General.+ // infix notation")
   // ALL OPERATORS ARE METHODS.
   println(1.+(2))
   println(1 + 2)                  // Equivalent to above
