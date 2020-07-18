@@ -96,4 +96,37 @@ object Inheritance extends App {
   }
   val dog_super3 = new DogSuper3("K11")
   dog_super3.eat_super
+
+  println("-------------------------------------- abstract")
+  abstract class AnimalAbstract {
+    val creatureType: String = "wild"
+    def eat: Unit
+  }
+  class DogAbstract extends AnimalAbstract {
+    override val creatureType: String = "wolf"
+    def eat: Unit = println("dog-eat")
+  }
+  val dog_abstract = new DogAbstract
+  dog_abstract.eat
+  println(dog_abstract.creatureType)
+
+  println("-------------------------------------- traits")
+  trait Carnivore {
+    def eat(animal: AnimalAbstract): Unit
+    val preferredMeal: String = "fresh meat"
+  }
+  trait ColdBlooded
+  class Crocodile extends AnimalAbstract with Carnivore with ColdBlooded {
+    override val creatureType: String = "croc"
+    def eat: Unit = println("croc-eat")
+    def eat(animal: AnimalAbstract): Unit = println(s"I'm a croc and I'm eating ${animal.creatureType}")
+  }
+  val croc = new Crocodile
+  croc.eat
+  croc.eat(dog_abstract)
+
+  // traits vs abstract classes
+  // 1 - traits do not have constructor parameters
+  // 2 - multiple traits may be inherited by the same class
+  // 3 - traits = behavior, abstract class = "thing"
 }
