@@ -1,4 +1,4 @@
-object Inheritance extends App {
+object InheritanceAbstractTraits extends App {
   class Animal { // Super-class
     val creatureType = "wild"
     def eat = println("animal-eat")
